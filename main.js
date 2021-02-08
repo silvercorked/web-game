@@ -1,5 +1,6 @@
-import RedRectangle from './game/RedRectangle.js';
 import FirstScene from './game/FirstScene.js';
+import RedRectangle from './game/RedRectangle.js';
+import BlueRectangle from './game/BlueRectangle.js';
 
 const canv = document.getElementById('canv');
 
@@ -22,7 +23,7 @@ let firstScene = new FirstScene();
 let redRectangle = new RedRectangle();
 firstScene.addChild(redRectangle);
 
-let red2 = new RedRectangle();
+let red2 = new BlueRectangle();
 red2.x = 300;
 red2.y = -10;
 firstScene.addChild(red2);
@@ -33,4 +34,4 @@ function gameLoop() {
 	firstScene.update();
 }
 
-setInterval(gameLoop, 33);
+setInterval(gameLoop, 1000 / 60); // 60 frames created per second

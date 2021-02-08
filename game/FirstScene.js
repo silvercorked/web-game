@@ -1,7 +1,7 @@
 import Scene from '../engine/Scene.js';
 
 class FirstScene extends Scene {
-    constuctor() {
+    constructor() {
         super();
     }
 }
