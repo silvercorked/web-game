@@ -3,6 +3,7 @@ import MoveComponent from "./MoveComponent.js";
 class PlayerMoveComponent extends MoveComponent {
     constructor(gameObject) {
         super(gameObject);
+        this.moveSpeed = 5;
         this.nextX = this.gameObject.x;
         this.nextY = this.gameObject.y;
         this.up = this.down = this.right = this.left = false;
@@ -52,32 +53,32 @@ class PlayerMoveComponent extends MoveComponent {
     update() {
         console.log(this.nextY, this.nextX);
         if (this.up && this.right) {
-            this.nextX++;
-            this.nextY--;
+            this.nextX += this.moveSpeed;
+            this.nextY -= this.moveSpeed;
         }
         else if (this.up && this.left) {
-            this.nextX--;
-            this.nextY--;
+            this.nextX -= this.moveSpeed;
+            this.nextY -= this.moveSpeed;
         }
         else if (this.right && this.down) {
-            this.nextX++;
-            this.nextY++;
+            this.nextX += this.moveSpeed;
+            this.nextY += this.moveSpeed;
         }
         else if (this.left && this.down) {
-            this.nextX--;
-            this.nextY++;
+            this.nextX -= this.moveSpeed;
+            this.nextY += this.moveSpeed;
         }
         else if (this.up) {
-            this.nextY--;
+            this.nextY -= this.moveSpeed;
         }
         else if (this.down) {
-            this.nextY++;
+            this.nextY += this.moveSpeed;
         }
         else if (this.left) {
-            this.nextX--;
+            this.nextX -= this.moveSpeed;
         }
         else if (this.right) {
-            this.nextX++;
+            this.nextX += this.moveSpeed;
         }
         this.gameObject.x = this.nextX;
         this.gameObject.y = this.nextY;
