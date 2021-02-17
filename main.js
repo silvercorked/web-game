@@ -1,6 +1,10 @@
-import FirstScene from './game/FirstScene.js';
-import RedRectangle from './game/RedRectangle.js';
-import BlueRectangle from './game/BlueRectangle.js';
+import FirstScene from './game/scenes/FirstScene.js';
+import RedRectangle from './game/prefabs/RedRectangle.js';
+import BlueRectangle from './game/prefabs/BlueRectangle.js';
+import MoveComponent from './game/components/MoveComponent.js';
+import PlayerMoveComponent from './game/components/PlayerMoveComponent.js';
+import DrawComponent from './game/components/DrawComponent.js';
+import Scene from './engine/Scene.js';
 
 const canv = document.getElementById('canv');
 
@@ -19,14 +23,10 @@ function clear() {
 	ctx.fillRect(0, 0, canv.width, canv.height);
 }
 
-let firstScene = new FirstScene();
-let redRectangle = new RedRectangle();
-firstScene.addChild(redRectangle);
+let allComponents = [MoveComponent, DrawComponent, PlayerMoveComponent];
+let allPrefabs = [BlueRectangle, RedRectangle];
 
-let red2 = new BlueRectangle();
-red2.x = 300;
-red2.y = -10;
-firstScene.addChild(red2);
+let firstScene = Scene.deserialize(FirstScene, allComponents, allPrefabs);
 
 function gameLoop() {
 	clear();

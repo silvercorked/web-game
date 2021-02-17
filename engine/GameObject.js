@@ -1,4 +1,16 @@
 class GameObject {
+
+    static deserialize(definition, allComponents) {
+        let gameObj = new GameObject();
+        gameObj.name = definition.name;
+        definition.components.forEach(componentDefinition => {
+            let componentClass = allComponents.find(componentClass => componentClass.name == componentDefinition.name);
+            let component = new componentClass(gameObj, ...componentDefinition.args || []);
+            gameObj.components.push(component);
+        });
+        return gameObj;
+    }
+
     constructor() {
         this.x = 0;
         this.y = 0;

@@ -1,6 +1,7 @@
 import Component from "../../engine/Component.js";
 
 class MoveComponent extends Component {
+    static name = 'MoveComponent';
     constructor(gameObject) {
         super(gameObject);
     }

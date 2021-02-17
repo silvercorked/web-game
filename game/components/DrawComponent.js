@@ -1,6 +1,7 @@
 import Component from "../../engine/Component.js";
 
 class DrawComponent extends Component {
+    static name = 'DrawComponent';
     constructor(gameObject, color) {
         super(gameObject);
         this.color = color;
