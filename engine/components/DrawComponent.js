@@ -1,4 +1,4 @@
-import Component from "../../engine/Component.js";
+import Component from "../Component.js";
 
 class DrawComponent extends Component {
     static name = 'DrawComponent';
